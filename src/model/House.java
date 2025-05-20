@@ -15,4 +15,15 @@ public class House extends Figure {
         int[] yPoints = {position.getY() + size / 2, position.getY(), position.getY() + size / 2};
         g.fillPolygon(xPoints, yPoints, 3);
     }
+
+    @Override
+    public boolean contains(int x, int y) {
+        int baseX = position.getX();
+        int baseY = position.getY() + size / 2;
+        int w = size;
+        int h = size / 2;
+        boolean inBase = x >= baseX && x <= baseX + w && y >= baseY && y <= baseY + h;
+        boolean inRoof = y >= position.getY() && y <= baseY && x >= baseX && x <= baseX + w;
+        return inBase || inRoof;
+    }
 }

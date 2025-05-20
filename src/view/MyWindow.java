@@ -75,7 +75,7 @@ public class MyWindow extends JFrame {
         panel.add(colorPanel);
         panel.add(Box.createVerticalStrut(10));
 
-        String[] figureTypes = {"Circle", "Square", "Triangle", "Oval", "Star", "House"};
+        String[] figureTypes = {"Circle", "Square", "Triangle", "Oval", "Star", "House", "Polygon"};
         for (String type : figureTypes) {
             JButton button = new JButton("Add " + type);
             button.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -86,12 +86,15 @@ public class MyWindow extends JFrame {
                 int y = rand.nextInt(canvas.getHeight() - 100) + 50;
                 Point position = new Point(x, y);
                 switch (type) {
-                    case "Circle" -> controller.addCircle(position, currentColor);
-                    case "Square" -> controller.addSquare(position, currentColor);
-                    case "Triangle" -> controller.addTriangle(position, currentColor);
-                    case "Oval" -> controller.addOval(position, currentColor);
-                    case "Star" -> controller.addStar(position, currentColor);
-                    case "House" -> controller.addHouse(position, currentColor);
+                    case "Circle" : controller.addCircle(position, currentColor);
+                    case "Square" : controller.addSquare(position, currentColor);
+                    case "Triangle" : controller.addTriangle(position, currentColor);
+                    case "Oval" : controller.addOval(position, currentColor);
+                    case "Star" : controller.addStar(position, currentColor);
+                    case "House" : controller.addHouse(position, currentColor);
+                    case "Polygon": controller.addPolygon(position, currentColor); 
+                    break;
+
                 }
             });
             panel.add(button);
@@ -141,7 +144,7 @@ public class MyWindow extends JFrame {
         toolbar.setFloatable(false);
 
         JButton saveButton = new JButton("Save");
-7        saveButton.addActionListener(e -> controller.saveToFile());
+        saveButton.addActionListener(e -> controller.saveToFile());
         toolbar.add(saveButton);
 
         JButton loadButton = new JButton("Load");

@@ -41,6 +41,11 @@ public class SystemWithDrawings extends FigureSystem {
         addFigure(new House(p, 60, color));
         window.repaintCanvas();
     }
+    public void addPolygon(Point p, Color color) {
+        addFigure(new PolygonFigure(p, 60, color));
+        window.repaintCanvas();
+    }
+
     public void deleteSelectedFigure() {
         removeSelected();
         window.repaintCanvas();

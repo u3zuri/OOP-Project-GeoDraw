@@ -16,7 +16,7 @@ public abstract class Figure implements Serializable {
 
     public abstract void draw(Graphics g);
     public void setColor(Color color) { this.color = color; }
-    public boolean contains(int x, int y) { return false; }
+    public abstract boolean contains(int x, int y);
 
     public void moveTo(int x, int y) {
         this.position.setX(x);

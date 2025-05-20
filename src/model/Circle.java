@@ -12,4 +12,13 @@ public class Circle extends Figure {
         g.setColor(color);
         g.fillOval(position.getX(), position.getY(), size, size);
     }
+
+    @Override
+    public boolean contains(int x, int y) {
+        int centerX = position.getX() + size / 2;
+        int centerY = position.getY() + size / 2;
+        int dx = x - centerX;
+        int dy = y - centerY;
+        return dx * dx + dy * dy <= (size / 2) * (size / 2);
+    }
 }
