@@ -2,11 +2,16 @@ package control;
 
 import model.*;
 import view.MyWindow;
-import java.awt.*;
+import java.awt.Color;
 
-public class SystemWithDrawings extends System {
+public class SystemWithDrawings extends FigureSystem {
     private MyWindow window;
 
+    public void moveTo(int x, int y) {
+        moveSelectedTo(x, y);
+    }
+    
+    
     public void launch() {
         window = new MyWindow(this);
         window.setupUI();

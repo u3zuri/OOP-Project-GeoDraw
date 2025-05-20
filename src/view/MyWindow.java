@@ -5,7 +5,13 @@ import model.*;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Component;
+import java.awt.FlowLayout;
 import java.awt.event.*;
 import java.util.List;
 import java.util.Random;
@@ -111,7 +117,8 @@ public class MyWindow extends JFrame {
             controller.changeSelectedFigureColor(currentColor);
         });
         panel.add(randomColorButton);
-
+        
+        panel.add(Box.createVerticalStrut(30));
         panel.add(Box.createVerticalGlue());
         JTextArea instructions = new JTextArea(
             "Instructions:\n" +
@@ -134,7 +141,7 @@ public class MyWindow extends JFrame {
         toolbar.setFloatable(false);
 
         JButton saveButton = new JButton("Save");
-        saveButton.addActionListener(e -> controller.saveToFile());
+7        saveButton.addActionListener(e -> controller.saveToFile());
         toolbar.add(saveButton);
 
         JButton loadButton = new JButton("Load");
